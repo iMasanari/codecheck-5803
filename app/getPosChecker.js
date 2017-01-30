@@ -1,13 +1,13 @@
 "use strict";
 require("tslib");
-var kuromoji = require("kuromoji");
+var kuromojiRequester_1 = require("./kuromojiRequester");
 function default_1(keywords) {
     return __awaiter(this, void 0, void 0, function () {
         var builder, tokenizer, list;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    builder = kuromoji.builder({
+                    builder = kuromojiRequester_1.default.builder({
                         dicPath: 'node_modules/kuromoji/dict'
                     });
                     return [4 /*yield*/, new Promise(function (done) {

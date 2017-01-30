@@ -1,5 +1,5 @@
 import "tslib"
-import * as kuromoji from 'kuromoji'
+import kuromoji from './kuromojiRequester'
 
 export default async function (keywords: string[]) {
     const builder = kuromoji.builder({
