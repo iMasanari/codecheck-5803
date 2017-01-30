@@ -5,15 +5,17 @@
   "author": "Givery",
   "scripts": {
     "test": "codecheck",
-    "build": "tsc -p . && node index [\\\"Google\\\",\\ \\\"Apple\\\",\\ \\\"Microsoft\\\",\\ \\\"Amazon\\\"] 2016-01-01 2016-11-01"
+    "build": "tsc -p . && node index [\\\"五郎丸歩\\\",\\ \\\"ドローン\\\",\\ \\\"松岡修造\\\"] 2016-01-01 2016-11-01"
   },
   "dependencies": {
     "compute-pcorr": "^1.0.0",
+    "kuromoji": "^0.1.1",
     "minimist": "^1.2.0",
     "request": "^2.75.0",
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
+    "@types/kuromoji": "0.0.28",
     "@types/request": "0.0.39",
     "chai": "^3.5.0",
     "codecheck": "^0.5.6",

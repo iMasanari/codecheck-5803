@@ -34,30 +34,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var getCoefficients_1 = require("./getCoefficients");
-var getPosChecker_1 = require("./getPosChecker");
-function main(argv) {
+var kuromoji = require("kuromoji");
+function default_1(keywords) {
     return __awaiter(this, void 0, void 0, function () {
-        var list, start, end, _a, coefficients, posChecker, result;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var builder, tokenizer, list;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
-                    list = JSON.parse(argv[0]);
-                    start = argv[1], end = argv[2];
-                    return [4 /*yield*/, Promise.all([
-                            getCoefficients_1.default(list, start, end),
-                            getPosChecker_1.default(list)
-                        ])];
+                    builder = kuromoji.builder({
+                        dicPath: 'node_modules/kuromoji/dict'
+                    });
+                    return [4 /*yield*/, new Promise(function (done) {
+                            builder.build(function (err, tokenizer) { done(tokenizer); });
+                        })];
                 case 1:
-                    _a = _b.sent(), coefficients = _a[0], posChecker = _a[1];
-                    result = {
-                        coefficients: coefficients,
-                        posChecker: posChecker
-                    };
-                    console.log(JSON.stringify(result));
-                    return [2 /*return*/];
+                    tokenizer = _a.sent();
+                    list = keywords.map(function (keyword) {
+                        return tokenizer.tokenize(keyword)
+                            .map(function (features) { return features.surface_form === 'ド' ? '名詞' : features.pos; })
+                            .filter(function (pos, i, array) { return pos !== '名詞' || array[i - 1] !== '名詞'; })
+                            .join(' ');
+                    });
+                    return [2 /*return*/, list.every(function (token) { return token === list[0]; })];
             }
         });
     });
 }
-module.exports = main;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = default_1;
