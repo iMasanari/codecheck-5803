@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "app",
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [
+            "es2015"
+        ],
+        "noImplicitAny": false,
+        "sourceMap": false
+    },
+    "files": [
+        "src/main.ts"
+    ]
+}
