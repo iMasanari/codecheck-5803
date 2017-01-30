@@ -1,3 +1,4 @@
+import "tslib"
 import getCoefficients from './getCoefficients'
 import getPosChecker from './getPosChecker'
 

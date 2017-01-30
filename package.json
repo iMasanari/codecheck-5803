@@ -12,7 +12,8 @@
     "kuromoji": "^0.1.1",
     "minimist": "^1.2.0",
     "request": "^2.75.0",
-    "request-promise": "^4.1.1"
+    "request-promise": "^4.1.1",
+    "tslib": "^1.5.0"
   },
   "devDependencies": {
     "@types/kuromoji": "0.0.28",

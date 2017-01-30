@@ -1,3 +1,4 @@
+import "tslib"
 import * as kuromoji from 'kuromoji'
 
 export default async function (keywords: string[]) {

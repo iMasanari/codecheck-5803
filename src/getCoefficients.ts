@@ -1,3 +1,4 @@
+import "tslib"
 import * as request from 'request'
 
 const ackey = '869388c0968ae503614699f99e09d960f9ad3e12'
