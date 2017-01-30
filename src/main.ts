@@ -1,3 +1,5 @@
+// TypeScriptで書いてjsにトランスパイルしました。tsファイルは`/src`にあります。
+
 import "tslib"
 import getCoefficients from './getCoefficients'
 import getPosChecker from './getPosChecker'
@@ -11,10 +13,7 @@ async function main(argv: string[]) {
         getPosChecker(list)
     ])
 
-    const result = {
-        coefficients,
-        posChecker
-    }
+    const result = { coefficients, posChecker }
 
     console.log(JSON.stringify(result))
 }

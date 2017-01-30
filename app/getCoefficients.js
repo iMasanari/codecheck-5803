@@ -20,7 +20,7 @@ function default_1(list, start, end) {
                                     case 1:
                                         response = _a.sent();
                                         numFound = +response.result.numFound;
-                                        docs = response.result.doc;
+                                        docs = response.result.doc || [];
                                         promises = [];
                                         for (i = 1; (i - 1) * 100 <= numFound; ++i) {
                                             promise = sendRequest(keyword, "[" + start + " TO " + end + "]", i * 100).then(function (response) {
@@ -37,7 +37,7 @@ function default_1(list, start, end) {
                                     case 2:
                                         // 読み込み完了を待つ
                                         _a.sent();
-                                        return [2 /*return*/, docs || []];
+                                        return [2 /*return*/, docs];
                                 }
                             });
                         }); }))];

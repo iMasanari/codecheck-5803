@@ -1,3 +1,4 @@
+// TypeScriptで書いてjsにトランスパイルしました。tsファイルは`/src`にあります。
 "use strict";
 require("tslib");
 var getCoefficients_1 = require("./getCoefficients");
@@ -16,10 +17,7 @@ function main(argv) {
                         ])];
                 case 1:
                     _a = _b.sent(), coefficients = _a[0], posChecker = _a[1];
-                    result = {
-                        coefficients: coefficients,
-                        posChecker: posChecker
-                    };
+                    result = { coefficients: coefficients, posChecker: posChecker };
                     console.log(JSON.stringify(result));
                     return [2 /*return*/];
             }

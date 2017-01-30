@@ -36,7 +36,7 @@ export default async function (list: string[], start: string, end: string) {
         const response = await sendRequest(keyword, `[${start} TO ${end}]`, 0)
 
         const numFound = +response.result.numFound
-        const docs = response.result.doc
+        const docs = response.result.doc || []
 
         // 追加読み込み
         const promises = []
@@ -55,7 +55,7 @@ export default async function (list: string[], start: string, end: string) {
         // 読み込み完了を待つ
         await Promise.all(promises)
 
-        return docs || []
+        return docs
     }))
     // console.log(docsList.map(v => v.length))
 

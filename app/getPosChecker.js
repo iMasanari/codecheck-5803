@@ -17,10 +17,13 @@ function default_1(keywords) {
                     tokenizer = _a.sent();
                     list = keywords.map(function (keyword) {
                         return tokenizer.tokenize(keyword)
-                            .map(function (features) { return features.surface_form === 'ド' ? '名詞' : features.pos; })
-                            .filter(function (pos, i, array) { return pos !== '名詞' || array[i - 1] !== '名詞'; })
+                            .map(function (features) {
+                            return features.surface_form === 'ド' ? '名詞' : features.pos;
+                        })
+                            .filter(function (pos, i, array) { return pos !== '名詞' || array[i - 1] !== '名詞'; }) // 名詞を繋げる 固有名詞などへの対策
                             .join(' ');
                     });
+                    // 品詞チェック
                     return [2 /*return*/, list.every(function (token) { return token === list[0]; })];
             }
         });
